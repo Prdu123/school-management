@@ -1,0 +1,53 @@
+﻿@model SchoolManagement.Models.SubjectViewModel
+
+@{
+    ViewData["Title"] = "Edit Subject";
+}
+
+<h2>Edit Subject</h2>
+
+<h4>Subject</h4>
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Class" class="control-label"></label>
+                <input asp-for="Class" class="form-control" />
+                <span asp-validation-for="Class" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeacherIds" class="control-label">Teachers</label>
+                <select asp-for="TeacherIds" class="form-control" asp-items="ViewBag.TeacherIds" multiple>
+                </select>
+                <span asp-validation-for="TeacherIds" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StudentIds" class="control-label">Students</label>
+                <select asp-for="StudentIds" class="form-control" asp-items="ViewBag.StudentIds" multiple>
+                </select>
+                <span asp-validation-for="StudentIds" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
